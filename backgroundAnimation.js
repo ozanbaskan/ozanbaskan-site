@@ -1,6 +1,8 @@
 import FlyingObject from "./flyingObjects.js";
 import handleIntensity from "./intensity.js";
 
+const count = document.getElementById("count");
+
 const canvas = document.getElementById("nav-animation");
 const ctx = canvas.getContext("2d");
 const gradient = ctx.createLinearGradient(0, 0, 0, 170);
@@ -36,14 +38,18 @@ let increment = document.getElementById("increase");
 let decrement = document.getElementById("decrease");
 increment.addEventListener("click", () => {
   objNumber = handleIntensity("+", objNumber);
+  count.innerText = objNumber;
 });
 decrement.addEventListener("click", () => {
   objNumber = handleIntensity("-", objNumber);
-  if (objectArray.length > 0) objectArray.splice(0, 25);
+  if (objectArray.length > 200) objectArray.splice(0, 100);
+  else if (objectArray.length > 0) objectArray.splice(0, 25);
+  count.innerText = objNumber;
 });
 
 // this is the animation function, running non-stop
 const animationFunc = (time) => {
+  console.log(objNumber);
   // function period
   let secondsSinceLast = (time - lastRenderTime) / 100;
   window.requestAnimationFrame(animationFunc);
