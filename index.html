@@ -5,38 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://kit.fontawesome.com/69beb0f982.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Ozan Başkan</title>
   </head>
   <body>
     <canvas height="100px" id="nav-animation"></canvas>
-    <div class="container">
-      <nav>
-        <div id="left-nav">
-          <header>
-            <h1>Ozan Başkan</h1>
-          </header>
-        </div>
-        <div id="middle-nav">
-          <ul class="top-menu">
-            <li class="inline top-menu-item">About Me</li>
-            <li class="inline top-menu-item">My Purpose</li>
-            <li class="inline top-menu-item">Contact</li>
-          </ul>
-        </div>
-        <div id="pop-right-nav" tabindex="0"></div>
-        <div id="right-nav">
-          <div id="inc-dec">
-            <p>Background Intensity</p>
-            <div class="inc-dec-buttons">
-              <button id="increase" class="inline intensity">+</button>
-              <button id="decrease" class="inline intensity">-</button>
-              <p class="inline" id="count" style="margin-left: 15px">25</p>
+    <main>
+      <div class="container">
+        <nav>
+          <div id="left-nav" class="inline">
+            <div class="top-menu">
+              <div class="inline top-menu-item">Home</div>
+              <div class="inline top-menu-item">About Me</div>
+              <div class="inline top-menu-item">My Purpose</div>
+              <div class="inline top-menu-item">Contact</div>
             </div>
           </div>
-        </div>
-      </nav>
-    </div>
-    <script type="module" src="backgroundAnimation.js"></script>
-    <script type="module" src="intensityPop.js"></script>
+          <div id="pop-right-nav" tabindex="0"></div>
+          <div id="right-nav">
+            <div id="inc-dec">
+              <button id="increase" class="inline">+</button>
+              <button id="decrease" class="inline">-</button>
+              <p class="inline" id="count">25</p>
+              <div class="inline top-menu-item">Background Intensity</div>
+            </div>
+          </div>
+        </nav>
+        <section id="main-page">
+          <img
+            id="myImg"
+            class="main-page-content"
+            src="img/ozan.jpg"
+            width="150px"
+          />
+          <p class="main-page-content">
+            Hello, my name is Ozan. I am a medical doctor who decided to change
+            careers and specialize in computer sciences.
+          </p>
+          <hr />
+        </section>
+      </div>
+      <footer>
+        <a
+          href="https://www.linkedin.com/in/ozan-ba%C5%9Fkan-383536126/"
+          target="_blank"
+          ><i class="fab fa-linkedin fa-3x"></i
+        ></a>
+        <a href="https://www.freecodecamp.org/ozanbaskan" target="_blank"
+          ><i class="fab fa-free-code-camp fa-3x"></i
+        ></a>
+        <a href="https://github.com/ozanbaskan" target="_blank">
+          <i class="fab fa-github-square fa-3x"></i
+        ></a>
+      </footer>
+    </main>
+    <script type="module" src="js/backgroundAnimation.js"></script>
+    <script type="module" src="js/intensityPop.js"></script>
   </body>
 </html>

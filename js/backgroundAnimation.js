@@ -49,7 +49,6 @@ decrement.addEventListener("click", () => {
 
 // this is the animation function, running non-stop
 const animationFunc = (time) => {
-  console.log(objNumber);
   // function period
   let secondsSinceLast = (time - lastRenderTime) / 100;
   window.requestAnimationFrame(animationFunc);
@@ -108,6 +107,7 @@ const draw = () => {
   for (let i = 0; i < objectArray.length; i++) {
     if (objectArray[i].shape === 1) {
       ctx.beginPath();
+      //rotation matrix on rectangles
 
       let center = [
         objectArray[i].x + objectArray[i].h / 2,
@@ -165,6 +165,8 @@ const draw = () => {
         ctx.fill();
       }
     } else if (objectArray[i].shape === 0) {
+      // draw circles
+
       ctx.beginPath();
       ctx.arc(
         objectArray[i].x,
