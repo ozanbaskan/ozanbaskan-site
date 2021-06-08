@@ -4,15 +4,12 @@
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  line-height: 1em;
+  line-height: 1.3em;
 }
 
 nav {
   position: fixed;
   padding: 10px 10px 0 20px;
-}
-
-#left-nav {
 }
 
 #nav-animation {
@@ -30,26 +27,42 @@ nav {
   display: inline;
 }
 .inc-dec-buttons {
-  margin-left: 26px;
   margin-top: 5px;
 }
+#pop-right-nav {
+  width: 20px;
+  height: 20px;
+  border-top: 10px solid transparent;
+  border-right: 20px solid rgba(200, 210, 240, 1);
+  border-bottom: 10px solid transparent;
+  cursor: pointer;
+  position: fixed;
+  right: 0;
+  margin-right: 153px;
+}
 
-#inc-dec {
+#right-nav {
   position: fixed;
   right: 0;
   top: 0;
-  margin-right: 15px;
   margin-top: 10px;
+  background: rgba(200, 210, 240, 0.5);
+  border-radius: 10px 0 0 10px;
+  width: 150px;
+}
+
+#inc-dec {
   font-size: 15px;
   padding: 5px;
-  background: rgba(160, 168, 81, 0.5);
   border-radius: 10px;
 }
 
 button {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgb(241, 245, 204);
+  background-color: rgb(255, 255, 254);
   font-size: 20px;
 }

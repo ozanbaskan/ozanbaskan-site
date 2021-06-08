@@ -44,7 +44,6 @@ decrement.addEventListener("click", () => {
 
 // this is the animation function, running non-stop
 const animationFunc = (time) => {
-  console.log(objNumber);
   // function period
   let secondsSinceLast = (time - lastRenderTime) / 100;
   window.requestAnimationFrame(animationFunc);
