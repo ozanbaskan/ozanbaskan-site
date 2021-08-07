@@ -15,25 +15,6 @@
     <canvas height="100px" id="nav-animation"></canvas>
     <main>
       <div class="container">
-        <nav>
-          <div id="left-nav" class="inline">
-            <div class="top-menu">
-              <div class="inline top-menu-item">Home</div>
-              <div class="inline top-menu-item">About Me</div>
-              <div class="inline top-menu-item">My Purpose</div>
-              <div class="inline top-menu-item">Contact</div>
-            </div>
-          </div>
-          <div id="pop-right-nav" tabindex="0"></div>
-          <div id="right-nav">
-            <div id="inc-dec">
-              <button id="increase" class="inline">+</button>
-              <button id="decrease" class="inline">-</button>
-              <p class="inline" id="count">25</p>
-              <div class="inline top-menu-item">Background Intensity</div>
-            </div>
-          </div>
-        </nav>
         <section id="main-page">
           <img
             id="myImg"
@@ -42,13 +23,13 @@
             width="150px"
           />
           <p class="main-page-content">
-            Hello, my name is Ozan. I am a medical doctor who decided to change
-            careers and specialize in computer sciences.
+            Hello, my name is Ozan. I am a medical doctor who always loved tech
+            and decided to change career and specialize in computer sciences.
           </p>
           <hr />
         </section>
       </div>
-      <footer>
+      <footer id="footer">
         <a
           href="https://www.linkedin.com/in/ozan-ba%C5%9Fkan-383536126/"
           target="_blank"
@@ -62,7 +43,10 @@
         ></a>
       </footer>
     </main>
-    <script type="module" src="js/backgroundAnimation.js"></script>
-    <script type="module" src="js/intensityPop.js"></script>
+    <script
+      type="module"
+      src="js/background-animation/backgroundAnimation.js"
+    ></script>
+    <script type="module" src="js/loadingAnimation.js"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 class FlyingObject {
-  constructor() {
-    this.x = Math.round(Math.random() * window.innerWidth + 10);
-    this.y = Math.round(Math.random() * window.innerHeight + 10);
+  constructor(x, y) {
+    this.x = x || Math.round(Math.random() * window.innerWidth + 10);
+    this.y = y || Math.round(Math.random() * window.innerHeight + 10);
     this.shape = Math.floor(Math.random() * 3);
     this.h = 3 + this.shape;
     this.x_speed =

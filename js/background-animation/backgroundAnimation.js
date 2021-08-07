@@ -2,6 +2,8 @@ import FlyingObject from "./flyingObjects.js";
 import handleIntensity from "./intensity.js";
 
 const count = document.getElementById("count");
+const disableElement = document.getElementById("disable");
+let disable = false;
 
 const canvas = document.getElementById("nav-animation");
 const ctx = canvas.getContext("2d");
@@ -9,13 +11,29 @@ const gradient = ctx.createLinearGradient(0, 0, 0, 170);
 gradient.addColorStop(0, "#44096D");
 gradient.addColorStop(1, "#A750E4");
 
-let objNumber = 25;
+let objNumber = (() => {
+  return window.innerWidth > 1000 ? 50 : 25;
+})();
+
 let lastRenderTime = 0;
 let period = 1 / 30;
 let formObjectPeriod = 1 / 5;
 let objectArray = [];
 let width = window.innerWidth;
 let height = window.innerHeight;
+
+document.addEventListener("click", (e) => {
+  console.log(e);
+  objectArray.push(new FlyingObject(e.clientX, e.clientY));
+});
+
+//disable background
+// disableElement.addEventListener("click", () => {
+//   if (!disable) disableElement.innerText = "Play Background";
+//   else disableElement.innerText = "Pause Background";
+//   disable = !disable;
+//   console.log("disable");
+// });
 
 // react to resize events by changing speeds
 window.addEventListener("resize", (e) => {
@@ -34,29 +52,34 @@ window.addEventListener("resize", (e) => {
 });
 
 // change background intesity on user click
-let increment = document.getElementById("increase");
-let decrement = document.getElementById("decrease");
-increment.addEventListener("click", () => {
-  objNumber = handleIntensity("+", objNumber);
-  count.innerText = objNumber;
-});
-decrement.addEventListener("click", () => {
-  objNumber = handleIntensity("-", objNumber);
-  if (objectArray.length > 200) objectArray.splice(0, 100);
-  else if (objectArray.length > 0) objectArray.splice(0, 25);
-  count.innerText = objNumber;
-});
+// let increment = document.getElementById("increase");
+// let decrement = document.getElementById("decrease");
+// increment.addEventListener("click", () => {
+//   objNumber = handleIntensity("+", objNumber);
+//   count.innerText = objNumber;
+// });
+// decrement.addEventListener("click", () => {
+//   objNumber = handleIntensity("-", objNumber);
+//   if (objectArray.length > 200) objectArray.splice(0, 100);
+//   else if (objectArray.length > 0) objectArray.splice(0, 25);
+//   if (disable) {
+//     draw();
+//     findConnections();
+//   }
+//   count.innerText = objNumber;
+// });
 
 // this is the animation function, running non-stop
 const animationFunc = (time) => {
   // function period
   let secondsSinceLast = (time - lastRenderTime) / 100;
   window.requestAnimationFrame(animationFunc);
+  if (disable) return;
   // returns the function from here unless it is smaller than period
   if (period > secondsSinceLast) return;
   //there can only be 50 shapes at a time on the canvas
   if (formObjectPeriod > secondsSinceLast && objectArray.length < objNumber)
-    objectArray.push(new FlyingObject());
+    objectArray.push(new FlyingObject(0, 0));
 
   // resize canvas according to page
   canvas.width = window.innerWidth;
