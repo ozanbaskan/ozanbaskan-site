@@ -5,11 +5,8 @@ const count = document.getElementById("count");
 const disableElement = document.getElementById("disable");
 let disable = false;
 
-const canvas = document.getElementById("nav-animation");
+const canvas = document.getElementById("bg-animation");
 const ctx = canvas.getContext("2d");
-const gradient = ctx.createLinearGradient(0, 0, 0, 170);
-gradient.addColorStop(0, "#44096D");
-gradient.addColorStop(1, "#A750E4");
 
 let objNumber = (() => {
   return window.innerWidth > 1000 ? 50 : 25;
@@ -23,7 +20,6 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 
 document.addEventListener("click", (e) => {
-  console.log(e);
   objectArray.push(new FlyingObject(e.clientX, e.clientY));
 });
 
