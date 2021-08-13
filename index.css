@@ -61,6 +61,7 @@ li {
 #animation-control {
   position: absolute;
   right: 5px;
+  bottom: 5px;
   height: 180px;
   margin-right: auto;
   margin-left: auto;
