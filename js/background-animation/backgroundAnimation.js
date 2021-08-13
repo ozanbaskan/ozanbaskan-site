@@ -9,7 +9,9 @@ const canvas = document.getElementById("bg-animation");
 const ctx = canvas.getContext("2d");
 
 let objNumber = (() => {
-  return window.innerWidth > 1000 ? 50 : 25;
+  let number = window.innerWidth > 1000 ? 50 : 25;
+  count.innerText = number;
+  return number;
 })();
 
 let lastRenderTime = 0;
@@ -24,12 +26,18 @@ document.addEventListener("click", (e) => {
 });
 
 //disable background
-// disableElement.addEventListener("click", () => {
-//   if (!disable) disableElement.innerText = "Play Background";
-//   else disableElement.innerText = "Pause Background";
-//   disable = !disable;
-//   console.log("disable");
-// });
+disableElement.addEventListener("click", () => {
+  disable = !disable;
+  if (disable) {
+    disableElement.innerHTML = `<i class="fa fa-play fa-xs"></i>`;
+    disableElement.classList.remove("btn-danger");
+    disableElement.classList.add("btn-success");
+  } else {
+    disableElement.innerHTML = `<i class="fa fa-pause fa-xs"></i>`;
+    disableElement.classList.remove("btn-success");
+    disableElement.classList.add("btn-danger");
+  }
+});
 
 // react to resize events by changing speeds
 window.addEventListener("resize", (e) => {
@@ -48,22 +56,22 @@ window.addEventListener("resize", (e) => {
 });
 
 // change background intesity on user click
-// let increment = document.getElementById("increase");
-// let decrement = document.getElementById("decrease");
-// increment.addEventListener("click", () => {
-//   objNumber = handleIntensity("+", objNumber);
-//   count.innerText = objNumber;
-// });
-// decrement.addEventListener("click", () => {
-//   objNumber = handleIntensity("-", objNumber);
-//   if (objectArray.length > 200) objectArray.splice(0, 100);
-//   else if (objectArray.length > 0) objectArray.splice(0, 25);
-//   if (disable) {
-//     draw();
-//     findConnections();
-//   }
-//   count.innerText = objNumber;
-// });
+let increment = document.getElementById("increase");
+let decrement = document.getElementById("decrease");
+increment.addEventListener("click", () => {
+  objNumber = handleIntensity("+", objNumber);
+  count.innerText = objNumber;
+});
+decrement.addEventListener("click", () => {
+  objNumber = handleIntensity("-", objNumber);
+  if (objectArray.length > 200) objectArray.splice(0, 100);
+  else if (objectArray.length > 0) objectArray.splice(0, 25);
+  if (disable) {
+    draw();
+    findConnections();
+  }
+  count.innerText = objNumber;
+});
 
 // this is the animation function, running non-stop
 const animationFunc = (time) => {
