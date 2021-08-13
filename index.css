@@ -59,6 +59,7 @@ li {
 }
 
 #animation-control {
+  z-index: 4;
   position: absolute;
   right: 5px;
   bottom: 5px;
