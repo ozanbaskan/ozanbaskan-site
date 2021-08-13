@@ -147,4 +147,21 @@ footer i {
   #myImg {
     width: 100px;
   }
+
+  nav {
+    font-size: 1.5em;
+  }
+
+  li {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .nav-stick {
+    margin-top: 14px;
+    height: 8px;
+  }
+
+  #main-page {
+    font-size: 12px;
+  }
 }
