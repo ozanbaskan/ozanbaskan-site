@@ -3,7 +3,11 @@ import handleIntensity from "./intensity.js";
 
 const count = document.getElementById("count");
 const disableElement = document.getElementById("disable");
+
 let disable = false;
+
+let increment = document.getElementById("increase");
+let decrement = document.getElementById("decrease");
 
 const canvas = document.getElementById("bg-animation");
 const ctx = canvas.getContext("2d");
@@ -22,7 +26,14 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 
 document.addEventListener("click", (e) => {
+  if (
+    [increment, decrement, disableElement].includes(e.target) ||
+    objNumber >= 500 ||
+    e.target.tagName === "I"
+  )
+    return;
   objectArray.push(new FlyingObject(e.clientX, e.clientY));
+  count.innerText = ++objNumber;
   draw();
   findConnections();
 });
@@ -58,8 +69,6 @@ window.addEventListener("resize", (e) => {
 });
 
 // change background intesity on user click
-let increment = document.getElementById("increase");
-let decrement = document.getElementById("decrease");
 increment.addEventListener("click", () => {
   objNumber = handleIntensity("+", objNumber);
   count.innerText = objNumber;
