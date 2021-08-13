@@ -23,6 +23,8 @@ let height = window.innerHeight;
 
 document.addEventListener("click", (e) => {
   objectArray.push(new FlyingObject(e.clientX, e.clientY));
+  draw();
+  findConnections();
 });
 
 //disable background
