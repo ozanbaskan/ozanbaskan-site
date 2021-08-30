@@ -20,7 +20,9 @@ navElements[0].addEventListener("click", () => {
   src="img/ozan.jpg"
   width="150px"
 />
-<p class="main-page-content developer-title">Full Stack Developer</p>`;
+<p class="main-page-content developer-title">Full Stack Developer</p>
+
+`;
 });
 
 navElements[1].addEventListener("click", () => {
@@ -33,6 +35,7 @@ navElements[1].addEventListener("click", () => {
     <p>I started my professional career in computer science in January 2021. Since then I have been improving myself non-stop, learning everything I can.</p>
     </br>
     <p>This is my first personal site. You can check out my projects via my github, linkedIn and freeCodeCamp accounts if you are interested. I really love to work with you on various technologies.</p>
+    <p> My favourite language to write is java, I am currently developing with nodejs, I am also efficient in python. I work with html, css, bootstrap and react on front-end side.</p>
     </div>
     `;
 });
@@ -44,7 +47,7 @@ navElements[2].addEventListener("click", () => {
     <div style="text-align:center;font-style:italic;">
     <address>
     My Email: ozanbaskan7@gmail.com </br></br>
-    My Adress: Körfez District, Atakum, Samsun/Turkey
+    My Adress: Yenişehir District, Ataşehir, İstanbul/Turkey
     </address>
     </div>
     `;
