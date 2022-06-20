@@ -32,7 +32,7 @@ document.addEventListener("click", (e) => {
     e.target.tagName === "I"
   )
     return;
-  objectArray.push(new FlyingObject(e.clientX, e.clientY));
+  objectArray.push(new FlyingObject(e.clientX, e.clientY, true));
   count.innerText = ++objNumber;
   draw();
   findConnections();

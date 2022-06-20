@@ -52,3 +52,15 @@ navElements[2].addEventListener("click", () => {
     </div>
     `;
 });
+
+navElements[3].addEventListener("click", () => {
+  fadeInLower(mainPage);
+  mainPage.style.display = "block";
+  mainPage.innerHTML = `
+    <div style="display:flex;">
+      <div>
+        Still Building...
+      </div>
+    </div>
+    `;
+});
