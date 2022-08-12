@@ -58,9 +58,20 @@ navElements[3].addEventListener("click", () => {
   mainPage.style.display = "block";
   mainPage.innerHTML = `
     <div style="display:flex;">
-      <div>
-        Still Building...
+      <div class="project-container">
+          <a href="https://play.google.com/store/apps/details?id=com.simplekitchen">
+            <div class="project-item" data-project-name="simple-kitchen">
+              <img src="img/project_simple_kitchen.png"></img>
+              <span>Simple Kitchen</span>
+            </div>
+          </a>
       </div>
     </div>
     `;
+  
+  const projects = {
+    "simple-kitchen": "A full stack project for a start-up, food delivery by weekly subscription" 
+  };
+
+
 });
