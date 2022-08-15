@@ -32,10 +32,10 @@ navElements[1].addEventListener("click", () => {
     <div style="text-align:center;font-style:italic;">
     <p>Hello, my name is Ozan Başkan. I am from Turkey. I was born in 1997. I am passionate about science and mathematics.</p>
     </br>
-    <p>I started my professional career in computer science in January 2021. Since then I have been improving myself non-stop, learning everything I can.</p>
+    <p>I am self-taught computer scientist and a senior year medicine dropout.</p>
     </br>
-    <p>This is my first personal site. You can check out my projects via my github, linkedIn and freeCodeCamp accounts if you are interested. I really love to work with you on various technologies.</p>
-    <p> My favourite language to write is java, I am currently developing with nodejs, I am also efficient in python. I work with html, css, bootstrap, vanillaJS, react.js and vue.js on front-end side.</p>
+    <p>I am interested in science, I like to discuss ideas. I approach problems with multidisciplinary discipline.</p>
+    <p>You can contact me by mail and ask questions.</p>
     </div>
     `;
 });
@@ -68,9 +68,9 @@ navElements[3].addEventListener("click", () => {
       </div>
     </div>
     `;
-  
+
   const projects = {
-    "simple-kitchen": "A full stack project for a start-up, food delivery by weekly subscription" 
+    "simple-kitchen": "A full stack project for a start-up, food delivery by weekly subscription"
   };
 
 
