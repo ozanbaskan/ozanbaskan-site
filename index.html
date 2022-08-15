@@ -1,84 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="normalize.css" />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="project.css" />
-    <script
-      src="https://kit.fontawesome.com/69beb0f982.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      type="module"
-      src="js/animationHelpers/index.js"
-      defer
-    ></script>
-    <script
-      type="module"
-      src="js/backgroundAnimation/backgroundAnimation.js"
-      defer
-    ></script>
-    <script
-      type="module"
-      src="js/transitionAnimations/executeAnimations.js"
-      defer
-      ></script>
-    <link rel="icon" type="image/png" href="img/ozan.jpg" />
-    <title>Ozan Başkan</title>
-  </head>
-  <body>
-    <canvas height="100px" id="bg-animation"></canvas>
-    <nav>
-      <div id="nav-stick-left" class="nav-stick"></div>
-      <li class="clickable">Main</li>
-      <li class="clickable">About</li>
-      <li class="clickable">Contact</li>
-      <li class="clickable">Projects</li>
-      <div id="nav-stick-right" class="nav-stick"></div>
-    </nav>
-    <div id="animation-control">
-      <div class="btn btn-dark" id="increase">+</div>
-      <p id="count"></p>
-      <div class="btn btn-dark" id="decrease">-</div>
-      <div class="btn btn-danger" id="disable">
-        <i class="fa fa-pause fa-xs"></i>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="normalize.css" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="project.css" />
+  <script src="https://kit.fontawesome.com/69beb0f982.js" crossorigin="anonymous"></script>
+  <script type="module" src="js/transitionAnimations/animationFunctions.js" defer></script>
+  <script type="module" src="js/backgroundAnimation/backgroundAnimation.js" defer></script>
+  <script type="module" src="js/transitionAnimations/executeAnimations.js" defer></script>
+  <script type="module" src="js/router.js" defer></script>
+  <link rel="icon" type="image/png" href="img/ozan.jpg" />
+  <title>Ozan Başkan</title>
+</head>
+
+<body>
+  <canvas height="100px" id="bg-animation"></canvas>
+  <nav>
+    <div id="nav-stick-left" class="nav-stick"></div>
+    <li class="clickable">Main</li>
+    <li class="clickable">About</li>
+    <li class="clickable">Contact</li>
+    <li class="clickable">Projects</li>
+    <div id="nav-stick-right" class="nav-stick"></div>
+  </nav>
+  <div id="animation-control">
+    <div class="btn btn-dark" id="increase">+</div>
+    <p id="count"></p>
+    <div class="btn btn-dark" id="decrease">-</div>
+    <div class="btn btn-danger" id="disable">
+      <i class="fa fa-pause fa-xs"></i>
     </div>
-    <main>
-      <div class="container">
-        <section id="main-page">
-          <img
-            id="myImg"
-            class="main-page-content"
-            src="img/ozan.jpg"
-            width="150px"
-          />
-          <p class="main-page-content developer-title">Full Stack Developer</p>
-        </section>
-      </div>
-      <footer id="footer">
-        <a
-          href="https://www.linkedin.com/in/ozan-ba%C5%9Fkan-383536126/"
-          target="_blank"
-          ><i class="fab fa-linkedin fa-3x"></i
-        ></a>
-        <a href="https://www.freecodecamp.org/ozanbaskan" target="_blank"
-          ><i class="fab fa-free-code-camp fa-3x"></i
-        ></a>
-        <a href="https://github.com/ozanbaskan" target="_blank">
-          <i class="fab fa-github-square fa-3x"></i
-        ></a>
-      </footer>
-    </main>
-    
-  </body>
+  </div>
+  <main>
+    <div class="container">
+      <section id="main-page">
+        <img id="myImg" class="main-page-content" src="img/ozan.jpg" width="150px" />
+        <p class="main-page-content developer-title">Full Stack Developer</p>
+      </section>
+    </div>
+    <footer id="footer">
+      <a href="https://www.linkedin.com/in/ozan-ba%C5%9Fkan-383536126/" target="_blank"><i
+          class="fab fa-linkedin fa-3x"></i></a>
+      <a href="https://www.freecodecamp.org/ozanbaskan" target="_blank"><i class="fab fa-free-code-camp fa-3x"></i></a>
+      <a href="https://github.com/ozanbaskan" target="_blank">
+        <i class="fab fa-github-square fa-3x"></i></a>
+    </footer>
+  </main>
+
+</body>
+
 </html>
