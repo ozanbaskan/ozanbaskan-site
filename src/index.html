@@ -7,45 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-  <script src="https://kit.fontawesome.com/69beb0f982.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/69beb0f982.js" crossorigin="anonymous" defer></script>
   <link rel="icon" type="image/png" href="img/ozan.jpg" />
   <title>Ozan Başkan</title>
 </head>
 
 <body>
-  <canvas height="100px" id="bg-animation"></canvas>
-  <nav>
-    <div id="nav-stick-left" class="nav-stick"></div>
-    <li class="clickable">Main</li>
-    <li class="clickable">About</li>
-    <li class="clickable">Contact</li>
-    <li class="clickable">Projects</li>
-    <div id="nav-stick-right" class="nav-stick"></div>
-  </nav>
-  <div id="animation-control">
-    <div class="btn btn-dark" id="increase">+</div>
-    <p id="count"></p>
-    <div class="btn btn-dark" id="decrease">-</div>
-    <div class="btn btn-danger" id="disable">
-      <i class="fa fa-pause fa-xs"></i>
+
+  <div class="wrapper" style="display: none;">
+    <canvas id="canvas"></canvas>
+
+    <div class="main">
+      <div class="nav">
+        <div class="nav-item">Main</div>
+        <div class="nav-item">About</div>
+        <div class="nav-item">Contact</div>
+        <div class="nav-item">Portfolio</div>
+      </div>
+    </div>
+    <div id="animation-control">
+      <div class="btn btn-dark" id="increase">+</div>
+      <div class="target-count"></div>
+      <div class="current-count"></div>
+      <div class="btn btn-dark" id="decrease">-</div>
+      <div class="btn btn-danger" id="disable">
+        <i class="fa fa-pause fa-xs"></i>
+      </div>
     </div>
   </div>
-  <main>
-    <div class="container">
-      <section id="main-page">
-        <img id="myImg" class="main-page-content" src="img/ozan.jpg" width="150px" />
-        <p class="main-page-content developer-title">Full Stack Developer</p>
-      </section>
-    </div>
-    <footer id="footer">
-      <a href="https://www.linkedin.com/in/ozan-ba%C5%9Fkan-383536126/" target="_blank"><i
-          class="fab fa-linkedin fa-3x"></i></a>
-      <a href="https://www.freecodecamp.org/ozanbaskan" target="_blank"><i class="fab fa-free-code-camp fa-3x"></i></a>
-      <a href="https://github.com/ozanbaskan" target="_blank">
-        <i class="fab fa-github-square fa-3x"></i></a>
-    </footer>
-  </main>
-
 </body>
 
 </html>

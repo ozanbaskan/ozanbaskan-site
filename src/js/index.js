@@ -1,2 +1,2 @@
-import "./backgroundAnimation";
-import "./transitionAnimations";
+import "./customAnimations/fade";
+import "./customAnimations/backgroundAnimation";

@@ -1,7 +1,8 @@
 import FlyingObject from "./flyingObjects.js";
 import handleIntensity from "./intensity.js";
 
-const count = document.getElementById("count");
+const count = document.querySelector(".target-count");
+const currentCount = document.querySelector(".current-count");
 const disableElement = document.getElementById("disable");
 
 let disable = false;
@@ -9,8 +10,11 @@ let disable = false;
 let increment = document.getElementById("increase");
 let decrement = document.getElementById("decrease");
 
-const canvas = document.getElementById("bg-animation");
+const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
+
+canvas.style.position = "fixed";
+canvas.style.zIndex = "-1000"
 
 let objNumber = (() => {
   let number = window.innerWidth > 1000 ? 50 : 25;
@@ -22,6 +26,7 @@ let lastRenderTime = 0;
 let period = 1 / 30;
 let formObjectPeriod = 1 / 5;
 let objectArray = [];
+let currentObjectCount = objectArray.length;
 let width = window.innerWidth;
 let height = window.innerHeight;
 
@@ -68,12 +73,12 @@ window.addEventListener("resize", (e) => {
   height = currentHeight;
 });
 
-// change background intesity on user click
-increment.addEventListener("click", () => {
+function increase() {
   objNumber = handleIntensity("+", objNumber);
   count.innerText = objNumber;
-});
-decrement.addEventListener("click", () => {
+}
+
+function decrease() {
   objNumber = handleIntensity("-", objNumber);
   if (objectArray.length > 200) objectArray.splice(0, 100);
   else if (objectArray.length > 0) objectArray.splice(0, 25);
@@ -82,17 +87,28 @@ decrement.addEventListener("click", () => {
     findConnections();
   }
   count.innerText = objNumber;
+}
+
+// change background intesity on user click
+increment.addEventListener("click", increase);
+decrement.addEventListener("click", decrease);
+document.addEventListener("keypress", function (e) {
+  const key = e.key.toLocaleLowerCase();
+  if (key === "i" || key === "ı") increase();
+  else if (key === "d") decrease();
 });
 
 // this is the animation function, running non-stop
 const animationFunc = (time) => {
+  currentObjectCount = objectArray.length;
+  currentCount.innerText = currentObjectCount;
   // function period
   let secondsSinceLast = (time - lastRenderTime) / 100;
   window.requestAnimationFrame(animationFunc);
   if (disable) return;
   // returns the function from here unless it is smaller than period
   if (period > secondsSinceLast) return;
-  //there can only be 50 shapes at a time on the canvas
+  // there can only be 50 shapes at a time on the canvas
   if (formObjectPeriod > secondsSinceLast && objectArray.length < objNumber)
     objectArray.push(new FlyingObject(0, 0));
 
@@ -117,7 +133,7 @@ const findConnections = () => {
         if (
           Math.sqrt(
             (objectArray[i].x - objectArray[j].x) ** 2 +
-              (objectArray[i].y - objectArray[j].y) ** 2
+            (objectArray[i].y - objectArray[j].y) ** 2
           ) < 50
         ) {
           // establish connection
@@ -163,37 +179,37 @@ const draw = () => {
       ctx.moveTo(x, y);
       x =
         (objectArray[i].x + objectArray[i].h - center[0]) *
-          Math.cos(objectArray[i].deg) -
+        Math.cos(objectArray[i].deg) -
         (objectArray[i].y - center[1]) * Math.sin(objectArray[i].deg) +
         objectArray[i].x;
       y =
         (objectArray[i].x + objectArray[i].h - center[0]) *
-          Math.sin(objectArray[i].deg) +
+        Math.sin(objectArray[i].deg) +
         (objectArray[i].y - center[1]) * Math.cos(objectArray[i].deg) +
         objectArray[i].y;
       ctx.lineTo(x, y);
       x =
         (objectArray[i].x + objectArray[i].h - center[0]) *
-          Math.cos(objectArray[i].deg) -
+        Math.cos(objectArray[i].deg) -
         (objectArray[i].y + objectArray[i].h - center[1]) *
-          Math.sin(objectArray[i].deg) +
+        Math.sin(objectArray[i].deg) +
         objectArray[i].x;
       y =
         (objectArray[i].x + objectArray[i].h - center[0]) *
-          Math.sin(objectArray[i].deg) +
+        Math.sin(objectArray[i].deg) +
         (objectArray[i].y + objectArray[i].h - center[1]) *
-          Math.cos(objectArray[i].deg) +
+        Math.cos(objectArray[i].deg) +
         objectArray[i].y;
       ctx.lineTo(x, y);
       x =
         (objectArray[i].x - center[0]) * Math.cos(objectArray[i].deg) -
         (objectArray[i].y + objectArray[i].h - center[1]) *
-          Math.sin(objectArray[i].deg) +
+        Math.sin(objectArray[i].deg) +
         objectArray[i].x;
       y =
         (objectArray[i].x - center[0]) * Math.sin(objectArray[i].deg) +
         (objectArray[i].y + objectArray[i].h - center[1]) *
-          Math.cos(objectArray[i].deg) +
+        Math.cos(objectArray[i].deg) +
         objectArray[i].y;
       ctx.lineTo(x, y);
       ctx.closePath();
@@ -238,28 +254,28 @@ const draw = () => {
       ctx.moveTo(x, y);
       x =
         (objectArray[i].x + objectArray[i].h / 2 - center[0]) *
-          Math.cos(objectArray[i].deg) -
+        Math.cos(objectArray[i].deg) -
         (objectArray[i].y + objectArray[i].h - center[1]) *
-          Math.sin(objectArray[i].deg) +
+        Math.sin(objectArray[i].deg) +
         objectArray[i].x;
       y =
         (objectArray[i].x + objectArray[i].h / 2 - center[0]) *
-          Math.sin(objectArray[i].deg) +
+        Math.sin(objectArray[i].deg) +
         (objectArray[i].y + objectArray[i].h - center[1]) *
-          Math.cos(objectArray[i].deg) +
+        Math.cos(objectArray[i].deg) +
         objectArray[i].y;
       ctx.lineTo(x, y);
       x =
         (objectArray[i].x - objectArray[i].h / 2 - center[0]) *
-          Math.cos(objectArray[i].deg) -
+        Math.cos(objectArray[i].deg) -
         (objectArray[i].y + objectArray[i].h - center[1]) *
-          Math.sin(objectArray[i].deg) +
+        Math.sin(objectArray[i].deg) +
         objectArray[i].x;
       y =
         (objectArray[i].x - objectArray[i].h / 2 - center[0]) *
-          Math.sin(objectArray[i].deg) +
+        Math.sin(objectArray[i].deg) +
         (objectArray[i].y + objectArray[i].h - center[1]) *
-          Math.cos(objectArray[i].deg) +
+        Math.cos(objectArray[i].deg) +
         objectArray[i].y;
       ctx.lineTo(x, y);
       ctx.closePath();

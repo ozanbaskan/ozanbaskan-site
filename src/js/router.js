@@ -1,11 +1,12 @@
-import { elementFunctions } from "./transitionAnimations/animationFunctions.js";
+let id = -1;
+let lastId = -1;
 
-const visited = [];
-
-window.addEventListener("popstate", function () {
+window.addEventListener("popstate", function (e) {
+    e.preventDefault();
+    const lId = lastId;
     const state = this.history.state;
-    if (visited[visited.length - 1] !== state) return rotate(state, true)
-    const path = visited.pop();
+    lastId = state.id;
+    if (this.history.state.id !== id) return rotate(state, true);
     if (elementFunctions[path]) elementFunctions[path]();
     else elementFunctions[""]();
 });
@@ -13,10 +14,8 @@ window.addEventListener("popstate", function () {
 
 export function rotate(path, force) {
     const state = history.state;
-    if (state !== path || force) {
-        elementFunctions[path]();
-        if (visited.includes(state)) return history.replaceState(path, "", "/" + path);
-        visited.push(state);
-        history.pushState(path, "", "/" + path);
+    if (state.path !== path || force) {
+        history.pushState({ id: ++id, path }, "", "/" + path);
+        lastId = id;
     }
 }
