@@ -2,4 +2,4 @@
 My page which contains information about me.
 Building...
 
-https://www.ozanbaskan.com
+https://www.ozanbaskan.com/
