@@ -1,22 +1,27 @@
-import { elementFunctions } from "./transitionAnimations/animationFunctions.js";
+import { HistoryData } from "./helpers/history";
+import pages from "./pages"
 
-const visited = [];
+function preventReload() {
+    const anchors = document.querySelector(".nav").children;
+    for (const anchor of anchors) anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const url = new URL(e.currentTarget.href);
+        const path = url.pathname;
+        if (path === history.state?.path) return;
+        const historyData = new HistoryData(path);
+        history.pushState(historyData, "", url);
+        rotate(path);
+    });
+};
+preventReload();
 
-window.addEventListener("popstate", function () {
-    const state = this.history.state;
-    if (visited[visited.length - 1] !== state) return rotate(state, true)
-    const path = visited.pop();
-    if (elementFunctions[path]) elementFunctions[path]();
-    else elementFunctions[""]();
+window.addEventListener("popstate", function (e) {
+    e.preventDefault();
+    if (!this.history.state) return pages["/"]();
+    rotate(this.history?.state.path)
 });
 
 
-export function rotate(path, force) {
-    const state = history.state;
-    if (state !== path || force) {
-        elementFunctions[path]();
-        if (visited.includes(state)) return history.replaceState(path, "", "/" + path);
-        visited.push(state);
-        history.pushState(path, "", "/" + path);
-    }
+export function rotate(path) {
+    pages[path]?.() || pages[404]();
 }

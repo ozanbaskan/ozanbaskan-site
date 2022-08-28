@@ -9,11 +9,21 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"]
+                use: ["style-loader", "css-loader"],
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                test: /\.html/i,
+                use: ["html-loader"]
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[name].[ext]",
+                        outputPath: "img"
+                    }
+                }
             },
         ]
     }
