@@ -4,6 +4,7 @@ const fadeIn = (element) => {
   element.style.opacity = "0";
 
   const animate = () => {
+    console.log(opacity)
     opacity += 0.005;
     element.style.opacity = opacity.toString();
     if (opacity > 0.999) {

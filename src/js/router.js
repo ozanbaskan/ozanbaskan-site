@@ -1,21 +1,27 @@
-let id = -1;
-let lastId = -1;
+import { HistoryData } from "./helpers/history";
+import pages from "./pages"
+
+function preventReload() {
+    const anchors = document.querySelector(".nav").children;
+    for (const anchor of anchors) anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const url = new URL(e.currentTarget.href);
+        const path = url.pathname;
+        if (path === history.state?.path) return;
+        const historyData = new HistoryData(path);
+        history.pushState(historyData, "", url);
+        rotate(path);
+    });
+};
+preventReload();
 
 window.addEventListener("popstate", function (e) {
     e.preventDefault();
-    const lId = lastId;
-    const state = this.history.state;
-    lastId = state.id;
-    if (this.history.state.id !== id) return rotate(state, true);
-    if (elementFunctions[path]) elementFunctions[path]();
-    else elementFunctions[""]();
+    if (!this.history.state) return pages["/"]();
+    rotate(this.history?.state.path)
 });
 
 
-export function rotate(path, force) {
-    const state = history.state;
-    if (state.path !== path || force) {
-        history.pushState({ id: ++id, path }, "", "/" + path);
-        lastId = id;
-    }
+export function rotate(path) {
+    pages[path]?.() || pages[404]();
 }

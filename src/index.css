@@ -13,6 +13,8 @@ main {
 
 .wrapper {
   display: block !important;
+  height: 100%;
+  padding-top: 10px;
 }
 
 #animation-control {
@@ -30,7 +32,6 @@ main {
   background: rgba(255, 255, 255, 0.8);
 }
 
-
 .target-count {
   font-size: 1.2em;
 }
@@ -44,6 +45,9 @@ main {
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   margin-right: auto;
   margin-left: auto;
   min-width: 400px;
@@ -55,9 +59,18 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 10px;
 }
 
 .nav-item {
   cursor: pointer;
+}
+
+.content {
+  flex: 1;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
