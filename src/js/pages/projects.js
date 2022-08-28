@@ -11,12 +11,6 @@ const projects = [{
     url: "https://play.google.com/store/apps/details?id=com.simplekitchen",
     description: "A full stack mvp project for a start-up creating a homemade food service with weekly subscription",
     technologies: ["React", "React-Native", "MongoDB", "Nodejs", "Express"]
-}, {
-    name: "Simple Kitchen",
-    imgSrc: simpleKitchenImage,
-    url: "https://play.google.com/store/apps/details?id=com.simplekitchen",
-    description: "A full stack mvp project for a start-up creating a homemade food service with weekly subscriptionA full stack mvp project for a start-up creating a homemade food service with weekly subscriptionA full stack mvp project for a start-up creating a homemade food service with weekly subscription",
-    technologies: ["React", "React-Native", "MongoDB", "Nodejs", "Express"]
 }];
 
 function createPorjects() {
@@ -53,7 +47,7 @@ function createPorjects() {
         })
 
         outerDiv.style.marginBottom = "10px";
-        outerDiv.style.flex = "50%"; z
+        outerDiv.style.flex = "50%";
 
         childDiv.append(header, description, technologies);
         imgWrapper.appendChild(img)
