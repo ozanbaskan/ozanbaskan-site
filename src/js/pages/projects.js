@@ -9,7 +9,7 @@ const projects = [{
     name: "Simple Kitchen",
     imgSrc: simpleKitchenImage,
     url: "https://play.google.com/store/apps/details?id=com.simplekitchen",
-    description: "A full stack mvp project for a start-up creating a homemade food service with weekly subscriptionA full stack mvp project for a start-up creating a homemade food service with weekly subscriptionA full stack mvp project for a start-up creating a homemade food service with weekly subscription",
+    description: "A full stack mvp project for a start-up creating a homemade food service with weekly subscription",
     technologies: ["React", "React-Native", "MongoDB", "Nodejs", "Express"]
 }];
 
