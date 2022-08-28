@@ -24,4 +24,3 @@ export default function renderMain() {
     fadeInLower(mainContent);
     return true;
 }
-renderMain();

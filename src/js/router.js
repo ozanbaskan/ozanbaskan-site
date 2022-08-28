@@ -25,3 +25,4 @@ window.addEventListener("popstate", function (e) {
 export function rotate(path) {
     pages[path]?.() || pages[404]();
 }
+rotate(window.location.pathname);

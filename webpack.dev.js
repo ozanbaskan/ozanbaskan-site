@@ -9,6 +9,7 @@ module.exports = merge(config, {
         path: devPath
     },
     devServer: {
-        static: devPath
+        port: 3031,
+        historyApiFallback: true
     }
 })
