@@ -5,9 +5,6 @@ const devPath = path.join(__dirname, "dev");
 
 module.exports = merge(config, {
     mode: "development",
-    output: {
-        path: devPath
-    },
     devServer: {
         port: 3031,
         historyApiFallback: true
