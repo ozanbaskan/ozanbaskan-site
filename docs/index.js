@@ -10,19 +10,17 @@ textMeButton.addEventListener('click', (e) => {
         return setTextMeFeedback('Message is too short!', 'red');
     }
 
-    sendTheText();
+    textMeArea.value = '';
+    sendTheText(text);
 });
 
-const sendTheText = () => {
+const sendTheText = (text) => {
     setTextMeFeedback('...', 'black');
-    const textMeArea = document.querySelector('.text-me-area');
-    const text = textMeArea.value;
     if (text.trim().length > 10) {
         fetch('https://personal-site-messages.ozanbakan.repl.co/text', {
             method: 'POST',
             body: text
         }).then(async response => {
-            console.log(await response.text());
             if (response.status === 200) setTextMeFeedback('Your message is sent!', 'green');
             else {
                 const error = new Error();
